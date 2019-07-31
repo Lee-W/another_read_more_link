@@ -40,6 +40,7 @@ def insert_read_more_link(instance):
             absolute_url = '{}/{}'.format(instance.settings.get('SITEURL'), instance.url)
             read_more_link = ANOTHER_READ_MORE_LINK_FORMAT.format(url=absolute_url, text=ANOTHER_READ_MORE_LINK)
         summary = summary  + read_more_link
+    summary = instance._update_content(summary, instance.get_siteurl())
 
     # default_status was added to Pelican Content objects after 3.7.1.
     # Its use here is strictly to decide on how to set the summary.
